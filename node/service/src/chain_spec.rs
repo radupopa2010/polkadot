@@ -59,16 +59,16 @@ pub struct Extensions {
 	pub bad_blocks: sc_client_api::BadBlocks<polkadot_primitives::v1::Block>,
 }
 
-/// The `ChainSpec` parametrised for the polkadot runtime.
+/// The `ChainSpec` parameterized for the polkadot runtime.
 pub type PolkadotChainSpec = service::GenericChainSpec<polkadot::GenesisConfig, Extensions>;
 
-/// The `ChainSpec` parametrised for the kusama runtime.
+/// The `ChainSpec` parameterized for the kusama runtime.
 pub type KusamaChainSpec = service::GenericChainSpec<kusama::GenesisConfig, Extensions>;
 
-/// The `ChainSpec` parametrised for the westend runtime.
+/// The `ChainSpec` parameterized for the westend runtime.
 pub type WestendChainSpec = service::GenericChainSpec<westend::GenesisConfig, Extensions>;
 
-/// The `ChainSpec` parametrized for the rococo runtime.
+/// The `ChainSpec` parameterized for the rococo runtime.
 pub type RococoChainSpec = service::GenericChainSpec<RococoGenesisExt, Extensions>;
 
 /// Extension for the Rococo genesis config to support a custom changes to the genesis state.
@@ -442,6 +442,7 @@ fn westend_staging_testnet_config_genesis(wasm_binary: &[u8]) -> westend::Genesi
 			key: endowed_accounts[0].clone(),
 		},
 		parachains_configuration: Default::default(),
+		parachains_paras: Default::default(),
 	}
 }
 
@@ -645,6 +646,7 @@ fn kusama_staging_testnet_config_genesis(wasm_binary: &[u8]) -> kusama::GenesisC
 		pallet_treasury: Default::default(),
 		parachains_configuration: Default::default(),
 		pallet_gilt: Default::default(),
+		parachains_paras: Default::default(),
 	}
 }
 
@@ -1293,6 +1295,7 @@ pub fn kusama_testnet_genesis(
 		pallet_treasury: Default::default(),
 		parachains_configuration: Default::default(),
 		pallet_gilt: Default::default(),
+		parachains_paras: Default::default(),
 	}
 }
 
@@ -1377,6 +1380,7 @@ pub fn westend_testnet_genesis(
 		pallet_vesting: westend::VestingConfig { vesting: vec![] },
 		pallet_sudo: westend::SudoConfig { key: root_key },
 		parachains_configuration: Default::default(),
+		parachains_paras: Default::default(),
 	}
 }
 
